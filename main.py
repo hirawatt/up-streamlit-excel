@@ -52,7 +52,7 @@ def main() -> None:
         nature_df.index = pd.to_datetime(nature_df.index, format = '%m/%d/%Y').strftime('%Y-%m-%d')
         nature_df["Total"] = ""
         nature_dfT = nature_df.T
-        nature_dfT.head()
+        #nature_dfT.head()
 
         # 6
         current_date = ec_dfT.columns[0].strftime("%m%Y")
@@ -78,7 +78,7 @@ def main() -> None:
 
         # 7
         #nature_dfT
-        nature_dfT.index
+        #nature_dfT.index
 
         # 8
         new_index = ['VENTE - E BATTERIE', 'VENTE-POSE',
@@ -92,7 +92,7 @@ def main() -> None:
         nature_dfT.reindex(new_index)
 
         # 10
-        index_totaux
+        #index_totaux
 
 
         # 11
@@ -212,6 +212,12 @@ def main() -> None:
         writer.save()
         writer.close()
         print("over")
+
+        # Edit this with the excel file variable
+        data_variable = ec_dfT.to_excel(writer, sheet_name = "EC", startrow=START_ROW_NATURE, header = False)
+        st.download_button("Press to Download output", data=data_variable)
+
+        st.write("End")
 
 if __name__ == "__main__":
     st.set_page_config(
