@@ -212,10 +212,12 @@ def main() -> None:
         writer.save()
         writer.close()
         print("over")
-
+        
+        import os
         # Edit this with the excel file variable
-        data_variable = ec_dfT.to_excel(writer, sheet_name = "EC", startrow=START_ROW_NATURE, header = False)
-        st.download_button("Press to Download output", data=data_variable)
+        output_file = os.getcwd() + '/output3.xlsx'
+        st.write(output_file)
+        st.download_button("Press to Download output", data=output_file)
 
         st.write("End")
 
