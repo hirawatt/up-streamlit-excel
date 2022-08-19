@@ -217,7 +217,7 @@ def main() -> None:
         # Edit this with the excel file variable
         output_file = os.getcwd() + '/output3.xlsx'
         st.write(output_file)
-        st.download_button("Press to Download output", data=output_file)
+        st.download_button("Press to Download output", data=output_file, file_name="output.xlsx", mime="application/vnd.ms-excel")
 
         st.write("End")
 
